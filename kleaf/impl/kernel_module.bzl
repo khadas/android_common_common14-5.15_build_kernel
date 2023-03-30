@@ -470,7 +470,7 @@ def _kernel_module_impl(ctx):
              # Grab *.cmd
                {grab_cmd_cmd}
              # Move Module.symvers
-               rsync -aL ${{OUT_DIR}}/${{ext_mod_rel}}/Module.symvers {module_symvers}
+               rsync -aL $(find ${{OUT_DIR}}/${{ext_mod_rel}} -name Module.symvers) {module_symvers}
              # Grab and then drop modules.order
                {grab_modules_order_cmd}
                {drop_modules_order_cmd}
